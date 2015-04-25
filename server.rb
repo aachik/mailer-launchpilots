@@ -34,5 +34,6 @@ post '/mass_emails' do
 	  	:body => params[:template][ab_test_index.to_s],
 	  	:attachments => row.to_hash
 	  	)
+	redirect '/'
 	end
 end
