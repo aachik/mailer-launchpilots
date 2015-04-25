@@ -1,0 +1,40 @@
+%html(ng-app)
+  %head
+
+  %body(ng-init="count = ['']")
+    %h2 Import CSV to mass email yo!
+    =form_tag admin_mass_emails_path, multipart: true, target: "_blank" do
+      %table
+        %tr
+          %td=label_tag "CSV file with Email"
+          %td
+            =file_field_tag :file
+            =link_to "Sample", "https://dl.dropboxusercontent.com/u/3391326/mass_email.csv"
+          %td=submit_tag "Send Mass Email"
+      %br
+
+      %div(ng_repeat="n in count track by $index")
+        %table(style="border: 1px solid;")
+          %tr
+            %td
+            %td
+              %h2 Test {{$index}}
+          %tr
+            %td=label_tag "From email address"
+            %td=text_field_tag "from[{{$index}}]", '"Sha Uppal" <sha@launchpilots.com>', size: 100
+          %tr
+            %td=label_tag "Subject"
+            %td=text_field_tag "subject[{{$index}}]", "[first_name] want to join LP?", size: 100
+          %tr
+            %td=label_tag "The HTML email template"
+            %td=text_area_tag  "template[{{$index}}]", "Hi [first_name],
+              do you want to know more about Lord Xenu, our Lord and Savior?",
+              rows: 10, cols: 100
+          %tr(ng_show="$last")
+            %td
+            %td
+              %a{href: "", ng_click: "count.push('')"} Add test
+              %a{href: "", ng_click: "count.pop()"} Remove this test
+          %br
+
+    %script(src="http://apps.bdimg.com/libs/angular.js/1.2.16/angular.min.js")

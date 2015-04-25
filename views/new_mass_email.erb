@@ -1,0 +1,98 @@
+<html ng-app>
+<head>
+	<script type="text/javascript">
+		var NREUMQ=NREUMQ||[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);
+	</script>
+</head>
+<body ng-init="count = ['']">
+<h2>Import CSV to mass email yo!</h2>
+<form accept-charset="UTF-8" 
+action="/mass_emails" 
+enctype="multipart/form-data" 
+method="post" 
+target="_blank">
+	<div style="margin:0;padding:0;display:inline">
+		<input name="utf8" type="hidden" value="&#x2713;"/>
+		<input name="authenticity_token" type="hidden" value="vsp2/5YCM9OBFjXASnpnXNmi4oYVlbAEeUhHQzpRd4w=" />
+	</div>
+<table>
+	<tr>
+		<td>
+			<label for="CSV_file_with_Email">Csv file with email</label>
+		</td>
+		<td>
+		<input id="file" name="file" type="file" />
+			<a href="https://dl.dropboxusercontent.com/u/3391326/mass_email.csv">Sample</a>
+		</td>
+		<td>
+			<input name="commit" type="submit" value="Send Mass Email" />
+		</td>
+	</tr>
+	</table>
+	<br>
+	<div ng_repeat='n in count track by $index'>
+		<table style='border: 1px solid;'>
+			<tr>
+			<td></td>
+			<td>
+				<h2>Test {{$index}}</h2>
+			</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="From_email_address">From email address</label>
+				</td>
+				<td>
+					<input id="from____index__" name="from[{{$index}}]" size="100" type="text" value="&quot;Sha Uppal&quot; &lt;sha@launchpilots.com&gt;" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="Subject">Subject</label>
+				</td>
+				<td>
+					<input id="subject____index__" name="subject[{{$index}}]" size="100" type="text" value="[first_name] want to join LP?"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="The_HTML_email_template">The html email template</label>
+				</td>
+				<td>
+					<textarea cols="100" id="template____index__" name="template[{{$index}}]" rows="10">
+				Hi [first_name], do you want to know more about Lord Xenu, our Lord and Savior?</textarea>
+				</td>
+			</tr>
+			<tr ng_show='$last'>
+				<td></td>
+				<td>
+					<a href='' ng_click="count.push('')">Add test</a>
+					<a href='' ng_click='count.pop()'>Remove this test</a>
+				</td>
+			</tr>
+			<br>
+		</table>
+	</div>
+</form>
+
+<script src='http://apps.bdimg.com/libs/angular.js/1.2.16/angular.min.js'></script>
+<script type="text/javascript">
+if (!NREUMQ.f) { 
+	NREUMQ.f=function() {
+		NREUMQ.push(["load",new Date().getTime()]);
+		var e=document.createElement("script");
+		e.type="text/javascript";
+		e.src=(("http:"===document.location.protocol)?"http:":"https:") + "//" +
+		  "js-agent.newrelic.com/nr-100.js";
+		document.body.appendChild(e);
+		if(NREUMQ.a) {
+			NREUMQ.a()
+		};
+	};
+NREUMQ.a=window.onload;
+window.onload=NREUMQ.f;
+};
+NREUMQ.push(["nrfj","bam.nr-data.net","3d39fde445","1876663","c1ZaEEtWCl5TFhoAB11QWktRVgtXGQpQFjxdWEcXZlwLU18IRg==",9,9,new Date().getTime(),"","","","",""]);
+</script>
+</body>
+</html>
