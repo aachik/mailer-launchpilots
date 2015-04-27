@@ -8,8 +8,8 @@ Pony.options = {
     address:              'smtp.gmail.com',
     port:                  '587',
     enable_starttls_auto:  true,
-    user_name:             'theabsbot@gmail.com',
-    password:              'a01231261',
+    user_name:             '#########',
+    password:              '#########',
     authentication:       :plain, 
     domain:               "pyheart.com" 
   }
